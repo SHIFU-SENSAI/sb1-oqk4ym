@@ -33,7 +33,7 @@ const About = () => {
     <div id="about" className="min-h-screen bg-black text-white py-20 px-4 md:px-20">
       <div ref={containerRef} className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center animate-in">
-          About Me
+          ABOUT ME
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12">

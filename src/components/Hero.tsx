@@ -27,7 +27,7 @@ const Hero = () => {
       {
         y: 0,
         opacity: 1,
-        duration: 1,
+        duration: 0.5,
         delay: 0.5,
         ease: "power4.out"
       }
@@ -35,25 +35,30 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col justify-center items-center relative overflow-hidden pt-16">
-      <div className="absolute w-full h-full bg-[radial-gradient(circle_at_center,rgba(55,55,55,0.1)_0,rgba(0,0,0,1)_100%)]" />
-      
-      <h1 ref={headingRef} className="text-6xl md:text-8xl font-bold mb-6 relative z-10 text-transparent bg-clip-text text-white">
-        Siftain Ahmad
-      </h1>
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+        <div className="absolute inset-0 opacity-50 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:14px_24px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_100%_200px,#ffffff0d,transparent)]" />
+      </div>
 
-      <div ref={containerRef} className="text-center relative z-10">
-        <div className="flex items-center justify-center gap-4 mb-8">
-          <Gamepad2 className="w-8 h-8 text-purple-500" />
+      {/* Content */}
+      <div className="relative z-10 text-center">
+        <h1 ref={headingRef} className="text-6xl md:text-8xl font-bold mb-6 relative z-10 text-transparent bg-clip-text text-white">
+          SIFTAIN AHMAD
+        </h1>
+
+        <div className="flex items-center justify-center gap-4 mb-4">
+          <Gamepad2 className="w-7 h-7 text-purple-500 animate-[spin_1s_ease-in-out]" />
           <span className="text-2xl font-light">Game Developer</span>
           <span className="mx-2">|</span>
-          <Code className="w-8 h-8 text-cyan-500" />
+          <Code className="w-7 h-7 text-cyan-500 animate-[spin_1s_ease-in-out]" />
           <span className="text-2xl font-light">Competitive Programmer</span>
         </div>
 
-        <div className="flex gap-6 mb-12">
-          <Trophy className="w-6 h-6 text-yellow-500" />
-          <span className="text-lg text-gray-300">Top 1% on CodeForces</span>
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <Trophy className="w-6 h-6 text-yellow-500 animate-[spin_1s_ease-in-out]" />
+          <span className="text-2xl font-light">Top 1% on CodeForces</span>
         </div>
 
         <div className="flex gap-6 justify-center">
