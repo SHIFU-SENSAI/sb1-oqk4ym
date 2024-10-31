@@ -9,10 +9,10 @@ import Footer from './components/Footer';
 function App() {
   useEffect(() => {
     const scroll = new LocomotiveScroll({
-      el: document.querySelector('[data-scroll-container]')!,
+      el: document.querySelector('[data-scroll-container]') as HTMLElement,
       smooth: true,
-      smartphone: { smooth: true },
-      tablet: { smooth: true }
+      smartphone: { smooth: true, breakpoint: 767 },
+      tablet: { smooth: true, breakpoint: 1024 }
     });
 
     return () => {

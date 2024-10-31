@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import { Gamepad2, Code, Trophy, Github, Linkedin } from 'lucide-react';
+import { Gamepad2, Code, Trophy } from 'lucide-react';
 
 const Hero = () => {
   const headingRef = useRef(null);

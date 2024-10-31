@@ -41,8 +41,8 @@ const Projects = () => {
             A stunning 3D adventure game built with Unreal Engine. Features dynamic combat system and procedurally generated worlds.
           </p>
           <div className="flex gap-2 flex-wrap">
-            <span className="px-3 py-1 bg-purple-500/20 rounded-full text-sm">Unreal Engine</span>
-            <span className="px-3 py-1 bg-purple-500/20 rounded-full text-sm">C++</span>
+            <span className="px-3 py-1 bg-purple-500/20 rounded-full text-sm">Unity</span>
+            <span className="px-3 py-1 bg-purple-500/20 rounded-full text-sm">C#</span>
             <span className="px-3 py-1 bg-purple-500/20 rounded-full text-sm">Blueprint</span>
           </div>
         </div>

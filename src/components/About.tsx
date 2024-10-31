@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Code2, Trophy, Brain, Gamepad } from 'lucide-react';
@@ -47,25 +47,25 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-6 animate-in">
-            <div className="bg-purple-900/20 p-6 rounded-xl border border-purple-500/20">
+            <div className="bg-purple-900/20 p-6 rounded-xl border border-purple-500/20 transition-transform hover:scale-105">
               <Gamepad className="w-8 h-8 text-purple-500 mb-4" />
               <h3 className="text-xl font-bold mb-2">Game Dev</h3>
               <p className="text-gray-400">Creating immersive gaming experiences</p>
             </div>
 
-            <div className="bg-cyan-900/20 p-6 rounded-xl border border-cyan-500/20">
+            <div className="bg-cyan-900/20 p-6 rounded-xl border border-cyan-500/20 transition-transform hover:scale-105">
               <Code2 className="w-8 h-8 text-cyan-500 mb-4" />
               <h3 className="text-xl font-bold mb-2">Programming</h3>
               <p className="text-gray-400">Expert in multiple languages</p>
             </div>
 
-            <div className="bg-yellow-900/20 p-6 rounded-xl border border-yellow-500/20">
+            <div className="bg-yellow-900/20 p-6 rounded-xl border border-yellow-500/20 transition-transform hover:scale-105">
               <Trophy className="w-8 h-8 text-yellow-500 mb-4" />
               <h3 className="text-xl font-bold mb-2">Competitive</h3>
               <p className="text-gray-400">Top 1% on CodeForces</p>
             </div>
 
-            <div className="bg-green-900/20 p-6 rounded-xl border border-green-500/20">
+            <div className="bg-green-900/20 p-6 rounded-xl border border-green-500/20 transition-transform hover:scale-105">
               <Brain className="w-8 h-8 text-green-500 mb-4" />
               <h3 className="text-xl font-bold mb-2">Problem Solving</h3>
               <p className="text-gray-400">Advanced algorithmic thinking</p>
