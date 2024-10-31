@@ -6,6 +6,7 @@ import { Gamepad2, Code, Trophy } from 'lucide-react';
 const Hero = () => {
   const headingRef = useRef(null);
   const containerRef = useRef(null);
+  const backgroundRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const text = new SplitType(headingRef.current!, { types: 'chars' });
@@ -32,36 +33,82 @@ const Hero = () => {
         ease: "power4.out"
       }
     );
+
+    // Background animation
+    const circles = Array.from({ length: 20 }).map((_, i) => {
+      const circle = document.createElement('div');
+      circle.className = `absolute rounded-full bg-gradient-to-br 
+        ${i % 3 === 0 ? 'from-purple-500/20 to-cyan-500/20' : 
+          i % 3 === 1 ? 'from-cyan-500/20 to-yellow-500/20' : 
+          'from-yellow-500/20 to-purple-500/20'}`;
+      
+      const size = Math.random() * 200 + 100; // Random size between 100-300px
+      circle.style.width = `${size}px`;
+      circle.style.height = `${size}px`;
+      
+      backgroundRef.current?.appendChild(circle);
+      return circle;
+    });
+
+    circles.forEach((circle) => {
+      gsap.set(circle, {
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+      });
+
+      gsap.to(circle, {
+        x: `+=${Math.random() * 400 - 200}`,
+        y: `+=${Math.random() * 400 - 200}`,
+        duration: Math.random() * 10 + 5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+    });
+
+    return () => {
+      circles.forEach(circle => circle.remove());
+    };
   }, []);
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
-        <div className="absolute inset-0 opacity-50 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:14px_24px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_100%_200px,#ffffff0d,transparent)]" />
-      </div>
+      {/* Background */}
+      <div 
+        ref={backgroundRef} 
+        className="absolute inset-0 overflow-hidden blur-3xl"
+        style={{ filter: 'blur(120px)' }}
+      />
 
       {/* Content */}
-      <div className="relative z-10 text-center">
-        <h1 ref={headingRef} className="text-6xl md:text-8xl font-bold mb-6 relative z-10 text-transparent bg-clip-text text-white">
-          SIFTAIN AHMAD
-        </h1>
+      <div className="relative z-10 flex items-center gap-8 lg:gap-16">
+        {/* Text Content */}
+        <div className="text-center lg:text-left">
+          <h1 ref={headingRef} className="text-6xl md:text-8xl font-bold mb-6 relative z-10 text-transparent bg-clip-text text-white">
+            SIFTAIN AHMAD
+          </h1>
 
-        <div className="flex items-center justify-center gap-4 mb-4">
-          <Gamepad2 className="w-7 h-7 text-purple-500 animate-[spin_1s_ease-in-out]" />
-          <span className="text-2xl font-light">Game Developer</span>
-          <span className="mx-2">|</span>
-          <Code className="w-7 h-7 text-cyan-500 animate-[spin_1s_ease-in-out]" />
-          <span className="text-2xl font-light">Competitive Programmer</span>
+          <div className="flex items-center justify-center lg:justify-start gap-4 mb-4">
+            <Gamepad2 className="w-7 h-7 text-purple-500 animate-[spin_1s_ease-in-out]" />
+            <span className="text-2xl font-light">Game Developer</span>
+            <span className="mx-2">|</span>
+            <Code className="w-7 h-7 text-cyan-500 animate-[spin_1s_ease-in-out]" />
+            <span className="text-2xl font-light">Competitive Programmer</span>
+          </div>
+
+          <div className="flex items-center justify-center lg:justify-start gap-4 mb-12">
+            <Trophy className="w-6 h-6 text-yellow-500 animate-[spin_1s_ease-in-out]" />
+            <span className="text-2xl font-light">Top 1% on CodeForces</span>
+          </div>
         </div>
-
-        <div className="flex items-center justify-center gap-4 mb-12">
-          <Trophy className="w-6 h-6 text-yellow-500 animate-[spin_1s_ease-in-out]" />
-          <span className="text-2xl font-light">Top 1% on CodeForces</span>
-        </div>
-
-        <div className="flex gap-6 justify-center">
+        <div className="hidden lg:block translate-x-10">
+          <div className="w-[300px] h-[300px] rounded-full overflow-hidden border-4 border-white/10">
+            <img 
+              src="/src/assets/kakashi.jpg" 
+              alt="Dazai Kakashi"
+              className="w-full h-full object-cover object-[center_top]"
+            />
+          </div>
         </div>
       </div>
     </div>

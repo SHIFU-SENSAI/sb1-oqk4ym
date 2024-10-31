@@ -1,5 +1,4 @@
-import React from 'react';
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail, X } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -8,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-col items-center justify-center space-y-6">
           <div className="flex items-center space-x-8">
             <a
-              href="https://github.com"
+              href="https://github.com/SHIFU-SENSAI"
               className="text-gray-400 hover:text-white transform hover:scale-110 transition-all duration-200"
               target="_blank"
               rel="noopener noreferrer"
@@ -29,11 +28,12 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Twitter className="w-6 h-6" />
+              <X className="w-6 h-6" />
             </a>
             <a
-              href="mailto:contact@example.com"
+              href="mailto:ahmadsiftain89@gmail.com"
               className="text-gray-400 hover:text-white transform hover:scale-110 transition-all duration-200"
+              target="_blank"
             >
               <Mail className="w-6 h-6" />
             </a>

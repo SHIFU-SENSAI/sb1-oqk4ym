@@ -5,13 +5,13 @@ import Hero from './components/Hero';
 import Projects from './components/Projects';
 import About from './components/About';
 import Footer from './components/Footer';
+import Timeline from './components/Timeline';
 
 function App() {
   useEffect(() => {
     const scroll = new LocomotiveScroll({
       el: document.querySelector('[data-scroll-container]') as HTMLElement,
       smooth: true,
-      smartphone: { smooth: true, breakpoint: 767 },
       tablet: { smooth: true, breakpoint: 1024 }
     });
 
@@ -26,6 +26,9 @@ function App() {
       <main data-scroll-container className="bg-black">
         <section id="home">
           <Hero />
+        </section>
+        <section id="timeline">
+          <Timeline />
         </section>
         <section id="projects">
           <Projects />
