@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import { Gamepad2, Code, Trophy } from 'lucide-react';
+import { Gamepad2, Code,Globe } from 'lucide-react';
 
 const Hero = () => {
   const headingRef = useRef(null);
@@ -79,10 +79,11 @@ const Hero = () => {
         className="absolute inset-0 overflow-hidden blur-3xl"
         style={{ filter: 'blur(120px)' }}
       />
+      {/* Add gradient overlay at the bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 flex items-center gap-8 lg:gap-16">
-        {/* Text Content */}
         <div className="text-center lg:text-left">
           <h1 ref={headingRef} className="text-6xl md:text-8xl font-bold mb-6 relative z-10 text-transparent bg-clip-text text-white">
             SIFTAIN AHMAD
@@ -97,16 +98,16 @@ const Hero = () => {
           </div>
 
           <div className="flex items-center justify-center lg:justify-start gap-4 mb-12">
-            <Trophy className="w-6 h-6 text-yellow-500 animate-[spin_1s_ease-in-out]" />
-            <span className="text-2xl font-light">Top 1% on CodeForces</span>
+            <Globe className="w-6 h-6 text-yellow-500 animate-[spin_1s_ease-in-out]" />
+            <span className="text-2xl font-light">Web Developer</span>
           </div>
         </div>
-        <div className="hidden lg:block translate-x-10">
+        <div className="hidden lg:block translate-x-1">
           <div className="w-[300px] h-[300px] rounded-full overflow-hidden border-4 border-white/10">
             <img 
-              src="/src/assets/kakashi.jpg" 
-              alt="Dazai Kakashi"
-              className="w-full h-full object-cover object-[center_top]"
+              src="/src/assets/Hinata.jpg" 
+              alt="Hinata"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>

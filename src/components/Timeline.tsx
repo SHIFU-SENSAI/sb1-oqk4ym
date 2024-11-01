@@ -14,13 +14,13 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
-    date: "2023 - Present",
-    title: "Senior Game Developer",
-    description: "Leading game development projects using Unity and Unreal Engine",
+    date: "2021 - Present",
+    title: "Game Developer",
+    description: "Leading game development projects using Unity",
     type: "work"
   },
   {
-    date: "2020 - 2023",
+    date: "2023 - 2027",
     title: "Computer Science Degree",
     description: "Bachelor's in Computer Science with focus on game development",
     type: "education"
@@ -30,6 +30,7 @@ const timelineData: TimelineItem[] = [
 
 const Timeline = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
+  const backgroundRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -51,7 +52,41 @@ const Timeline = () => {
       });
     }, timelineRef);
 
-    return () => ctx.revert();
+    const circles = Array.from({ length: 20 }).map((_, i) => {
+      const circle = document.createElement('div');
+      circle.className = `absolute rounded-full bg-gradient-to-br 
+        ${i % 3 === 0 ? 'from-purple-500/20 to-cyan-500/20' : 
+          i % 3 === 1 ? 'from-cyan-500/20 to-yellow-500/20' : 
+          'from-yellow-500/20 to-purple-500/20'}`;
+      
+      const size = Math.random() * 200 + 100;
+      circle.style.width = `${size}px`;
+      circle.style.height = `${size}px`;
+      
+      backgroundRef.current?.appendChild(circle);
+      return circle;
+    });
+
+    circles.forEach((circle) => {
+      gsap.set(circle, {
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+      });
+
+      gsap.to(circle, {
+        x: `+=${Math.random() * 400 - 200}`,
+        y: `+=${Math.random() * 400 - 200}`,
+        duration: Math.random() * 10 + 5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+    });
+
+    return () => {
+      ctx.revert();
+      circles.forEach(circle => circle.remove());
+    };
   }, []);
 
   const getIcon = (type: string) => {
@@ -66,9 +101,19 @@ const Timeline = () => {
   };
 
   return (
-    <section className="py-20 px-4 bg-gray-400">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-16 text-transparent bg-clip-text text-white">
+    <section className="relative py-20 px-4" id="journey">
+      {/* Background */}
+      <div 
+        ref={backgroundRef} 
+        className="absolute inset-0 overflow-hidden blur-3xl"
+        style={{ filter: 'blur(120px)' }}
+      />
+      {/* Add gradient overlay at the top */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent" />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl mx-auto">
+        <h2 className="text-6xl font-bold text-center mb-16 text-transparent bg-clip-text text-white">
           MY JOURNEY
         </h2>
         
