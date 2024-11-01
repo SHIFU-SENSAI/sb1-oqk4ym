@@ -6,7 +6,6 @@ import Projects from './components/Projects';
 import About from './components/About';
 import Footer from './components/Footer';
 import Timeline from './components/Timeline';
-
 function App() {
   useEffect(() => {
     const scroll = new LocomotiveScroll({

@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import SplitType from 'split-type';
-import { Gamepad2, Code,Globe } from 'lucide-react';
+import { Gamepad2, Code,Globe} from 'lucide-react';
+import { FaVolleyballBall } from 'react-icons/fa';
 
 const Hero = () => {
   const headingRef = useRef(null);
@@ -98,8 +99,12 @@ const Hero = () => {
           </div>
 
           <div className="flex items-center justify-center lg:justify-start gap-4 mb-12">
-            <Globe className="w-6 h-6 text-yellow-500 animate-[spin_1s_ease-in-out]" />
+            <Globe className="w-7 h-7 text-yellow-500 animate-[spin_1s_ease-in-out]" />
             <span className="text-2xl font-light">Web Developer</span>
+            <span className="mx-2">|</span>
+            <FaVolleyballBall className="w-7 h-7 text-orange-500 animate-[spin_1s_ease-in-out]" />
+            <span className="text-2xl font-light">Volleyball Player</span>
+
           </div>
         </div>
         <div className="hidden lg:block translate-x-1">
